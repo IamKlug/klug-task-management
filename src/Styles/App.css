@@ -50,6 +50,27 @@
   background: #EA5555;
 }
 
+.bg-light-gradient{
+  background: linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.5) 100%);
+}
+
+.bg-dark-gradient{
+  background: linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%);
+}
+
+.new-column{
+  height: 92.5%;
+  width: -webkit-fill-available;
+  min-width: 280px;
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+}
+
 .heading-large{
   font-style: normal;
   font-weight: 700;

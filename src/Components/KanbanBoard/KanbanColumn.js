@@ -7,6 +7,18 @@ export default function KanbanColumn({ openModal, setActiveTask }) {
   const { kanban } = useContext(KanbanContext);
 
   const addColumns = () => {
+    const activeBoard = kanban.boards[kanban.activeBoardId];
+    const columnsOfActiveBoardExist = activeBoard.columns.length > 0 ? true : false;
+    if(columnsOfActiveBoardExist){
+      return (
+        <button
+            className={`heading-medium new-column main-purple ${kanban.darkMode ? "bg-dark-gradient" : "bg-light-gradient"}`}
+            onClick={() => openModal("EditBoard")}
+          >
+            + Add New Column
+          </button>
+      )
+    } else {
     return (
       <div className="flex-center">
         <div>
@@ -22,6 +34,7 @@ export default function KanbanColumn({ openModal, setActiveTask }) {
         </div>
       </div>
     );
+    }
   };
 
   const displayColumns = () => {
