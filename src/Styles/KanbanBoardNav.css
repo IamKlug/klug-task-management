@@ -19,7 +19,7 @@
   .kanban-board-nav_sidebar{
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+
     height: 100%;
     width: 25%;
     min-width: 250px;
