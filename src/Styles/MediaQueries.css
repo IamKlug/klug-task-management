@@ -1,0 +1,31 @@
+@media (min-width: 770px) {
+    .display-sidebar-button{
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .dark-mode-switch-container{
+        margin: 50px 16px;
+    }
+
+    .show-add-task-button{
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+   
+  }
+
+  @media (max-width: 770px) {
+
+    .dark-mode-switch-container{
+        margin: 16px;
+    }
+
+
+
+
+  }
+
+ 

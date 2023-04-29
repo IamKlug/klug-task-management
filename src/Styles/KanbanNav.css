@@ -1,0 +1,45 @@
+.kanban-nav{
+    z-index: 2; 
+    height: 7.5%;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .kanban-nav_left {
+    display: flex;
+    align-items: center;
+    margin-right: 10px
+  }
+  
+  .kanban-nav_right{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+  }
+  
+  .kanban-nav_title{
+    cursor: pointer;
+    margin-right: 8px; 
+  }
+
+  .kanban-nav_add_task_button{
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 0 16px;
+    height: 32px;
+    border-radius: 24px;
+    border: none;
+  }
+
+  .kanban-nav_add_task_button_blur{
+    mix-blend-mode: normal;
+    opacity: 0.25;
+  }
+
