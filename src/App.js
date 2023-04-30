@@ -10,7 +10,7 @@ function App() {
 
   
   const initialState = {
-    activeBoardId: 14158122529,
+    activeBoardId: "14158122529",
     boards: {
       14158122529: {
         id: "14158122529",
@@ -26,9 +26,9 @@ function App() {
       // taskId: { id: taskId, columnId: columnId, title: 'Task Title', description: 'Task Description' subTasks: [subTaskId1, subTaskId2] }
     },
     subTasks: {
-      // subTaskId: { id: SubTaskId, content: 'SubTask Content'}
+      // subTaskId: { id: SubTaskId, checked: false content: 'SubTask Content'}
     },
-    darkMode: false,
+    darkMode: true,
     sideNavOpen: false,
   };
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import KanbanContext from "../UtilityComponents/KanbanContext";
 import IconVerticalEllipsis from "../IconComponents/IconVerticalEllipsis";
 import ModalTypeContext from "../UtilityComponents/ModalTypeContext";
@@ -35,14 +35,28 @@ export default function EditDeleteDropdown(props) {
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".dropdown")) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   
   return (
     <div
-      className={`dropdown ${isDropdownOpen ? "open" : ""}`}
+      className={`dropdown  ${isDropdownOpen ? "open" : ""}`}
       onClick={toggleDropdown}
     >
       <IconVerticalEllipsis />
-      <div className="dropdown-content">
+      <div className={`dropdown-content ${kanban.darkMode ? "bg-dark" : "bg-white"}`}>
         <p
           onClick={() => {
             toggleDropdown();

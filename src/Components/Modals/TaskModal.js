@@ -33,11 +33,28 @@ export default function TaskModal({ title, description, subTasks, ...props }) {
     setKanban(updatedKanban);
   };
 
+  const handleCheckSubtask = (subTaskId) => {
+    const updatedKanban = { ...kanban };
+    updatedKanban.subTasks[subTaskId].completed =
+      !updatedKanban.subTasks[subTaskId].completed;
+    setKanban(updatedKanban);
+  };
+
   return (
     <div className="bg-modal" onClick={handleBackgroundClick}>
-      <div className={`modal padding-24 ${kanban.darkMode ? "bg-dark-gray" : "bg-white" }`}>
+      <div
+        className={`modal padding-24 ${
+          kanban.darkMode ? "bg-dark-gray" : "bg-white"
+        }`}
+      >
         <div className="task-modal-header">
-          <h3 className={`heading-large text-align-center ${kanban.darkMode && "white" }`}>{title}</h3>
+          <h3
+            className={`heading-large text-align-center ${
+              kanban.darkMode && "white"
+            }`}
+          >
+            {title}
+          </h3>
           <EditDeleteDropdown
             edit={"Edit Task"}
             modalType={"EditTask"}
@@ -58,14 +75,26 @@ export default function TaskModal({ title, description, subTasks, ...props }) {
         {subTasks.map((subTask) => {
           const subTaskId = subTask.id;
           const subtaskContent = kanban.subTasks[subTaskId].content;
+          const isCompleted = kanban.subTasks[subTaskId].completed;
           return (
-            <label className={`subtask-checkbox-container ${kanban.darkMode ? "bg-dark white" : "bg-light" }`}>
+            <label
+              className={`subtask-checkbox-container ${
+                kanban.darkMode ? "bg-dark white" : "bg-light"
+              }`}
+            >
               <input
                 className="margin-left-16 margin-right-16"
                 type="checkbox"
-                value={kanban.subTasks[subTaskId].completed}
+                checked={isCompleted}
+                onChange={() => handleCheckSubtask(subTaskId)}
               />
-              <p className="heading-small">{subtaskContent}</p>
+              <p
+                className={`heading-small ${
+                  isCompleted && "strikethrough-completed"
+                }`}
+              >
+                {subtaskContent}
+              </p>
             </label>
           );
         })}
@@ -73,7 +102,9 @@ export default function TaskModal({ title, description, subTasks, ...props }) {
           Current Status
         </h6>
         <select
-          className={`status-option body-large margin-bottom-24 ${kanban.darkMode ? "bg-dark-gray white" : "bg-white"} `}
+          className={`status-option body-large margin-bottom-24 ${
+            kanban.darkMode ? "bg-dark-gray white" : "bg-white"
+          } `}
           name="status"
           value={props.task.columnId}
           onChange={handleStatusChange}
