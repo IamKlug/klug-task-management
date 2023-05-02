@@ -6,7 +6,6 @@ import KanbanBoard from "./Components/KanbanBoard/KanbanBoard";
 
 function App() {
  
-  // Rest of your component
 
   
   const initialState = {

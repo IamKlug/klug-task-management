@@ -39,6 +39,13 @@ export default function TaskModal({ title, description, subTasks, ...props }) {
       !updatedKanban.subTasks[subTaskId].completed;
     setKanban(updatedKanban);
   };
+  const completedSubtasks = (task) => {
+    const subTaskIds = task.subTasks;
+    const completedSubTasks = subTaskIds.filter(
+      (subTaskId) => kanban.subTasks[subTaskId].completed
+    );
+    return completedSubTasks.length;
+  };
 
   return (
     <div className="bg-modal" onClick={handleBackgroundClick}>
@@ -69,7 +76,7 @@ export default function TaskModal({ title, description, subTasks, ...props }) {
           {description}
         </h6>
         <h6 className="heading-small medium-gray align-self-start">
-          0 of {subTasks.length} substasks
+          {completedSubtasks(props.task)} of {subTasks.length} substasks
         </h6>
 
         {subTasks.map((subTask) => {

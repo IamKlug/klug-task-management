@@ -5,6 +5,14 @@ import KanbanContext from "../UtilityComponents/KanbanContext";
 export default function TaskList({ columnID, openModal, setActiveTask }) {
   const { kanban } = useContext(KanbanContext);
 
+  const completedSubtasks = (task) => {
+    const subTaskIds = task.subTasks;
+    const completedSubTasks = subTaskIds.filter(
+      (subTaskId) => kanban.subTasks[subTaskId].completed
+    );
+    return completedSubTasks.length;
+  };
+
   const taskCards = () => {
     const thisColumn = kanban.columns[columnID];
     const tasksOfThisColumn = thisColumn.tasks.map(
@@ -22,7 +30,7 @@ export default function TaskList({ columnID, openModal, setActiveTask }) {
       >
         <h6 className="heading-medium">{task.title}</h6>
         <p className="body-medium medium-gray">
-          0 of {task.subTasks.length} substasks
+          {completedSubtasks(task)} of {task.subTasks.length} substasks
         </p>
       </div>
     ));
