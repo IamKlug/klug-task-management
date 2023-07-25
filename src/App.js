@@ -31,7 +31,14 @@ function App() {
     sideNavOpen: false,
   };
 
-  const [kanban, setKanban] = useState(initialState);
+  const [kanban, setKanban] = useState(()=>{
+    const localData = localStorage.getItem('kanban');
+    return localData ? JSON.parse(localData) : initialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('kanban', JSON.stringify(kanban));
+  }, [kanban]);
 
   const handleResize = () => {
     if (window.innerWidth < 770 && kanban.sideNavOpen) {
