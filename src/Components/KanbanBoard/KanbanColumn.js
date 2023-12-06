@@ -8,32 +8,35 @@ export default function KanbanColumn({ openModal, setActiveTask }) {
 
   const addColumns = () => {
     const activeBoard = kanban.boards[kanban.activeBoardId];
-    const columnsOfActiveBoardExist = activeBoard.columns.length > 0 ? true : false;
-    if(columnsOfActiveBoardExist){
+    const columnsOfActiveBoardExist =
+      activeBoard.columns.length > 0 ? true : false;
+    if (columnsOfActiveBoardExist) {
       return (
         <button
-            className={`heading-medium new-column main-purple ${kanban.darkMode ? "bg-dark-gradient" : "bg-light-gradient"}`}
-            onClick={() => openModal("EditBoard")}
-          >
-            + Add New Column
-          </button>
-      )
+          className={`heading-medium new-column main-purple ${
+            kanban.darkMode ? "bg-dark-gradient" : "bg-light-gradient"
+          }`}
+          onClick={() => openModal("EditBoard")}
+        >
+          + Add New Column
+        </button>
+      );
     } else {
-    return (
-      <div className="flex-center">
-        <div>
-          <p className="heading-large medium-gray">
-            This board is empty. Create a new column to get started.
-          </p>
-          <button
-            className="heading-medium button-primary bg-main-purple white"
-            onClick={() => openModal("EditBoard")}
-          >
-            + Add New Column
-          </button>
+      return (
+        <div className="flex-center">
+          <div>
+            <p className="heading-large medium-gray">
+              This board is empty. Create a new column to get started.
+            </p>
+            <button
+              className="heading-medium button-primary bg-main-purple white"
+              onClick={() => openModal("EditBoard")}
+            >
+              + Add New Column
+            </button>
+          </div>
         </div>
-      </div>
-    );
+      );
     }
   };
 
@@ -53,7 +56,11 @@ export default function KanbanColumn({ openModal, setActiveTask }) {
             {")"}
           </p>
         </div>
-        <TaskList columnID={column.id} setActiveTask={setActiveTask} openModal={openModal}  />
+        <TaskList
+          columnID={column.id}
+          setActiveTask={setActiveTask}
+          openModal={openModal}
+        />
       </div>
     ));
   };

@@ -461,23 +461,23 @@ export default function KanbanBoard(props) {
           closeModal={closeModal}
           setActiveTask={setActiveTask}
         />
-        <button
+        <div
           onClick={toggleSideNav}
           className={`display-sidebar-button ${
             props.kanban.sideNavOpen
               ? `${
                   props.kanban.darkMode ? "bg-dark-gray" : "bg-white"
                 } margin-left-16`
-              : "bg-main-purple"
+              : "bg-main-purple have-shadow"
           }`}
         >
           {props.kanban.sideNavOpen ? <IconHideSideBar /> : <IconShowSideBar />}
           {props.kanban.sideNavOpen && (
-            <p className=" heading-medium medium-gray margin-left-16">
+            <p className="hide-shadow heading-medium medium-gray margin-left-16">
               Hide Sidebar
             </p>
           )}
-        </button>
+        </div>
       </div>
     </div>
   );

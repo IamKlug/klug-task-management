@@ -58,6 +58,14 @@
   background: linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.125) 100%);
 }
 
+button:hover{
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.hide-shadow:hover{
+  box-shadow: none;
+}
+
 .new-column{
   height: 92.5%;
   width: -webkit-fill-available;
@@ -340,6 +348,10 @@ cursor: pointer;
   border-radius: 0px 100px 100px 0px;
   border: none;
   cursor: pointer;
+}
+
+.have-shadow:hover{
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .show-add-task-button{

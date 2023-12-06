@@ -36,7 +36,10 @@
     height: 32px;
     border-radius: 24px;
     border: none;
+    transition: all 0.1s ease-in-out;
   }
+
+
 
   .kanban-nav_add_task_button_blur{
     mix-blend-mode: normal;
